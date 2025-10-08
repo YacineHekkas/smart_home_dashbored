@@ -1,0 +1,8 @@
+# si c'est un dossier nommé mosquitto.conf, supprime-le (ATTENTION: vérifie le contenu avant)
+Remove-Item .\mosquitto\mosquitto.conf -Recurse -Force
+
+# crée le fichier mosquitto.conf (ouvre un éditeur si tu préfères)
+New-Item -Path .\mosquitto\mosquitto.conf -ItemType File -Force
+
+# puis ouvre-le dans notepad pour coller la config
+notepad .\mosquitto\mosquitto.conf

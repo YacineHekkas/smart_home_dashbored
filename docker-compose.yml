@@ -1,0 +1,45 @@
+version: '3.8'
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mosquitto
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    ports:
+      - "1883:1883"   # MQTT
+      - "9001:9001"   # MQTT over WebSocket (used if needed)
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: hg_backend
+    environment:
+      - MQTT_HOST=mosquitto
+      - MQTT_PORT=1883
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mosquitto
+
+  frontend:
+    build: ./frontend
+    container_name: hg_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  sensor_sim:
+    build: ./sensor_sim
+    container_name: sensor_sim
+    environment:
+      - MQTT_HOST=mosquitto
+      - MQTT_PORT=1883
+    depends_on:
+      - mosquitto
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:

@@ -28,7 +28,7 @@
 
 ## Project overview
 
-This repository implements a Mini Digital Twin / Smart Home Dashboard that demonstrates how IoT devices can be simulated, monitored, and controlled in real time. The system is fully containerized using Docker Compose and uses MQTT as the device communication protocol. The frontend is a modern React/Next UI with glassmorphism styling and animated background. The backend bridges MQTT → WebSocket and exposes a small REST API for device commands.
+This repository implements a Smart Home monitor that demonstrates how IoT devices can be simulated, monitored, and controlled in real time. The system is fully containerized using Docker Compose and uses MQTT as the device communication protocol. The frontend is a modern React/Next UI with glassmorphism styling and animated background. The backend bridges MQTT → WebSocket and exposes a small REST API for device commands.
 
 This project is ideal for learning IoT messaging patterns, building prototypes for home automation, or as a foundation for adding hardware devices later.
 

@@ -22,8 +22,6 @@
 * [Sensor simulator](#sensor-simulator)
 * [Frontend notes & UI behaviors](#frontend-notes--ui-behaviors)
 * [Common commands / examples](#common-commands--examples)
-* [Troubleshooting](#troubleshooting)
-* [Future improvements](#future-improvements)
 * [Contributing & license](#contributing--license)
 
 ---
